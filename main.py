@@ -5,6 +5,14 @@ from scrapy.utils.project import get_project_settings
 # 这里是必须引入的
 # import robotparser
 
+import datetime
+import random
+import time
+import requests
+import tkinter
+import selenium.webdriver
+
+import scrapy.conf
 import scrapy.spiderloader
 import scrapy.statscollectors
 import scrapy.logformatter
@@ -65,5 +73,5 @@ import openpyxl  # 用到openpyxl库
 process = CrawlerProcess(get_project_settings())
 
 # 'Books' is the name of one of the spiders of the project.
-process.crawl('kuaidi')
+process.crawl('scrapy')
 process.start()  # the script will block here until the crawling is finished
