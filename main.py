@@ -4,7 +4,18 @@ from scrapy.utils.project import get_project_settings
 
 # 这里是必须引入的
 # import robotparser
+import urllib
 
+import datetime
+import random
+import time
+import requests
+import tkinter
+import selenium.webdriver
+
+import scrapy.xlib
+# import scrapy.xlib.pydispatch
+# import scrapy.conf
 import scrapy.spiderloader
 import scrapy.statscollectors
 import scrapy.logformatter
@@ -36,7 +47,7 @@ import scrapy.downloadermiddlewares.cookies
 import scrapy.downloadermiddlewares.useragent
 import scrapy.downloadermiddlewares.httpproxy
 import scrapy.downloadermiddlewares.ajaxcrawl
-import scrapy.downloadermiddlewares.chunked
+# import scrapy.downloadermiddlewares.chunked
 import scrapy.downloadermiddlewares.decompression
 import scrapy.downloadermiddlewares.defaultheaders
 import scrapy.downloadermiddlewares.downloadtimeout
@@ -56,14 +67,19 @@ import scrapy.pipelines
 
 import scrapy.core.downloader.handlers.http
 import scrapy.core.downloader.contextfactory
+# import scrapy.xlib.pydispatch.dispatcher
 
 import sys
 import xlrd
+import logging
+import logging.config
+import os
 
-import openpyxl  # 用到openpyxl库
+import openpyxl
 
 process = CrawlerProcess(get_project_settings())
 
-# 'Books' is the name of one of the spiders of the project.
+# 'kuaidi' is the name of one of the spiders of the project.
 process.crawl('kuaidi')
-process.start()  # the script will block here until the crawling is finished
+# the script will block here until the crawling is finished
+process.start()
