@@ -9,7 +9,7 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'kuaididanhao'
+BOT_NAME = 'kuaidi'
 
 SPIDER_MODULES = ['kuaididanhao.spiders']
 NEWSPIDER_MODULE = 'kuaididanhao.spiders'
@@ -135,4 +135,4 @@ USER_AGENT_LIST = [
         ]
 IP_LIST = []
 excel_path = 'C:\TrackData\81967003.xlsx'
-text = ''
+# text = ''

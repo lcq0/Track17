@@ -11,7 +11,7 @@ class Application(object):
         self.window.title('物流单号爬取')
         # 设置主窗口大小和位置
         # self.window.geometry('800x500+240+120')
-        self.center_window(self.window, 1000, 700)  # 窗口居中，宽800，高500
+        self.center_window(self.window, 1000, 600)  # 窗口居中，宽800，高500
         # 使用frame增加上中下4个框架
         self.fm1 = tkinter.Frame(self.window)  # fm1存放label标签
         self.fm2 = tkinter.Frame(self.window)  # fm2存放url输入框,下载按钮

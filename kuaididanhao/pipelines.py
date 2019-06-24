@@ -76,11 +76,11 @@ class KuaididanhaoPipeline(object):
                     ta_log.info('解析第 %s 条数据,总耗时 %d 秒' % (self.s, d))
                     break
             if self.s % 200 == 0:
-                ta_log.info('excel总条数:', self.rowlenth)
+                ta_log.info('excel总条数:'+self.rowlenth)
                 ta_log.info('已保存第 %s 条数据,总耗时 %d 秒' % (self.s, d))
                 self.wb.save(self.file_home)
             if self.rowlenth == (self.s+1) or read_len == (self.s+1):
-                ta_log.info('excel总条数:', self.rowlenth)
+                ta_log.info('excel总条数:'+self.rowlenth)
                 ta_log.info('已保存第 %s 条数据(最后一条),总耗时 %d 秒' % (self.s, d))
                 self.wb.save(self.file_home)
                 exit(0)

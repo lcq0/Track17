@@ -58,31 +58,66 @@ from openpyxl import load_workbook
 import datetime
 from bs4 import BeautifulSoup
 import requests
+
+
 class Excel2:
+    i = 0
+    j = 0
+    ip_list = []
+    index = 0
+    user_file = open('C:\TrackIP\IPList.txt', 'r')
+    lines = user_file.readlines()
+    for line in lines:
+        ip_list.insert(index, line.strip())
+        index += 1
+    def prindd(self):
+        while True:
+            if len(self.ip_list) <= 0:
+                print("已经没有可用的IP地址了，请更换IP并重启程序！")
+            if len(self.ip_list) - 1 > self.j:
+                temp_ip = self.ip_list[self.j]
+            else:
+                self.j = 0
+                temp_ip = self.ip_list[self.j]
+            self.j = self.j + 1
+            if len(temp_ip) < 1:
+                print('全部IP地址都已无效，请重新开始')
+            else:
+                try:
+                    requests.get('https://t.17track.net', proxies={"http": temp_ip})
+                except:
+                    print("删除无效代理IP=" + self.ip_list.pop(self.j - 1))
+                    self.j = self.j - 1
+                    continue
+                else:
+                    print("有效的代理IP=" + temp_ip)
+                    continue
+        print('请求代理IP：', temp_ip)
+    prindd('e')
 
-    try:
-        url = 'http://ip.tool.chinaz.com/'
-        ip = '115.153.10.21:42429'
-        proxies = {
-            'http': ip,
-        }
-        r = requests.get(url, proxies=proxies)
-        soup = BeautifulSoup(r.text, 'lxml')
-        parent_node = soup.find(class_="IpMRig-tit")
-        for i in parent_node.find_all('dd'):
-            print(i.get_text())
-    except BaseException:
-        print('无效IP地址')
+    # try:
+    #     url = 'http://ip.tool.chinaz.com/'
+    #     ip = '115.153.10.21:42429'
+    #     proxies = {
+    #         'http': ip,
+    #     }
+    #     r = requests.get(url, proxies=proxies)
+    #     soup = BeautifulSoup(r.text, 'lxml')
+    #     parent_node = soup.find(class_="IpMRig-tit")
+    #     for i in parent_node.find_all('dd'):
+    #         print(i.get_text())
+    # except BaseException:
+    #     print('无效IP地址')
 
-    def fibonacci(n):
-        if n == 0:
-            return 0
-        elif n == 1:
-            return 1
-        else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
-
-    print([fibonacci(x) for x in range(10)])
+    # def fibonacci(n):
+    #     if n == 0:
+    #         return 0
+    #     elif n == 1:
+    #         return 1
+    #     else:
+    #         return fibonacci(n - 1) + fibonacci(n - 2)
+    #
+    # print([fibonacci(x) for x in range(10)])
 
 
     # def IPcheck(self, ip):
