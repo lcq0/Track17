@@ -1,1 +1,3 @@
-17Track
+17Track用于爬取物流信息
+mian.py用于在开发环境执行
+main.py用于打包成EXE
